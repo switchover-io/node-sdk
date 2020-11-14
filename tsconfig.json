@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "outDir": "dist",
+      "lib": ["es2016"],
+      "target": "ES5",
+      "module": "CommonJS",
+      "sourceMap": false,
+      "declaration": true,
+      "declarationMap": true
+    },
+    "include": [
+      "src/**/*.ts"
+    ]
+  }

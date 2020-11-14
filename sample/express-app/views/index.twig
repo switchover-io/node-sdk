@@ -1,0 +1,33 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <div class="hero">
+        <h1>Wilhelm Wiesel's* awesome site</h1>
+    </div>
+
+    <div class="content-center">
+        <div style="padding: 6px;">
+            <h2 style="text-align: center; font-weight: 400;">Welcome to the Switchover ExpressJs Sample</h2>
+            <p>
+                Your toggle status: {{ feature }}
+            </p>
+
+            <p>
+                Now change the toggle status in your environment (SDK Key: {{ sdkKey }}) and <strong>publish</strong> it. Then reload this page.
+            </p>
+        </div>
+    </div>
+
+
+    {% if feature %}
+    <div id="greets" class="content-center" style="margin-top: 4em;">
+        <div class="teaser">
+            <p>Yeah! Your toggle is activated. Best greetings from Wihelm!</p>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class=footer>
+        * Learn more about Wilhelm: <a target="_blank" href="https://support.switch-over.io/">https://support.switch-over.io/</a>
+    </div>
+{% endblock %}
