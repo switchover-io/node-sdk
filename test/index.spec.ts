@@ -1,6 +1,6 @@
 const Switchover = require('../src/index');
 
-test('create default client not null', () => {    
+test('create default client not null', () => {
     const client = Switchover.createClient('key');
     expect(client).not.toBeNull();
 });

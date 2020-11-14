@@ -1,7 +1,7 @@
 # Switchover SDK for NodeJS
 
 ![CI](https://github.com/switchover-io/js-sdk/workflows/CI/badge.svg)
-![codecov](https://codecov.io/gh/switchover-io/node-sdk/branch/main/graph/badge.svg)](https://codecov.io/gh/switchover-io/node-sdk)
+[![codecov](https://codecov.io/gh/switchover-io/node-sdk/branch/main/graph/badge.svg)](https://codecov.io/gh/switchover-io/node-sdk)
 
 
 
