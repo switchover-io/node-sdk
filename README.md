@@ -19,7 +19,7 @@ Use this SDK for node javascript projects.
 
 Install via npm:
 ```bash
-npm i switchover-js-sdk
+npm i switchover-node-sdk
 ```
 
 Import the SDK:
