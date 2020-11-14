@@ -1,6 +1,6 @@
 {
   "name": "switchover-node-sdk",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Switchover NodeJS SDK. Feature Toggle Management made easy.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
