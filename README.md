@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/switchover-io/js-sdk/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/switchover-io/node-sdk/branch/main/graph/badge.svg)](https://codecov.io/gh/switchover-io/node-sdk)
-
+[![CodeFactor](https://www.codefactor.io/repository/github/switchover-io/node-sdk/badge/main)](https://www.codefactor.io/repository/github/switchover-io/node-sdk/overview/main)
 
 
 ## Switchover
