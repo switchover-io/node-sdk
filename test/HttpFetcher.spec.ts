@@ -1,5 +1,5 @@
 import { Logger } from 'switchover-js-core';
-import { HttpFetcher } from '../src/HttpFetcher';
+import { HttpFetcher  } from '../src/HttpFetcher';
 import { API_ENDPOINT_FILENAME, API_ENDPOINT_HOST, API_ENDPOINT_PATH } from '../src/sdk-config';
 const nock = require('nock')
 
@@ -69,4 +69,30 @@ test('Test fech with reply > 400', done => {
             expect(error).not.toBeNull();
             done();
         })
+
 })
+
+test('Test fetch with proxy', done => {
+
+    const SDK_KEY = 'SDK_KEY';
+    nock(`https://${API_ENDPOINT_HOST}`)
+    .get(`${API_ENDPOINT_PATH}/${SDK_KEY}/${API_ENDPOINT_FILENAME}`)
+        .reply(200, '');
+
+    const fetcher = new HttpFetcher(Logger.createLogger('debug'), {
+        protocol: 'http',
+        host: 'localhost',
+        port: 8080,
+    });
+
+    fetcher.fetchAll(SDK_KEY, null)
+        .then((apiResponse) => {
+            expect(apiResponse).not.toBeNull();
+            done();
+        })
+        .catch(error => {
+            expect(error).toBeNull();
+            done();
+        })
+
+});

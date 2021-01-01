@@ -4,7 +4,7 @@
       "lib": ["es2016"],
       "target": "ES5",
       "module": "CommonJS",
-      "sourceMap": false,
+      "sourceMap": true,
       "declaration": true,
       "declarationMap": true
     },

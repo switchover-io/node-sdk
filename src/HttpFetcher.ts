@@ -1,18 +1,22 @@
 import { Logger, Fetcher, ApiResponse } from "switchover-js-core"
 import { API_ENDPOINT_HOST, API_ENDPOINT_PATH, API_ENDPOINT_PORT, API_ENDPOINT_FILENAME } from './sdk-config';
 import * as https from 'https';
+import { HttpsProxyAgent } from "https-proxy-agent";
+import { ProxyOption } from "./ClientOptions";
 
 export class HttpFetcher implements Fetcher {
 
     private logger: Logger;
+    private proxy: ProxyOption;
 
-    constructor(logger: Logger) {
+    constructor(logger: Logger, proxy?: ProxyOption) {
         this.logger = logger;
+        this.proxy = proxy;
     }
 
     fetchAll(sdkKey: string, lastModified?: string): Promise<ApiResponse> {
 
-        const options = {
+        let options = {
             hostname: API_ENDPOINT_HOST,
             port: API_ENDPOINT_PORT,
             path: API_ENDPOINT_PATH + "/" + sdkKey + "/" + API_ENDPOINT_FILENAME,
@@ -22,7 +26,7 @@ export class HttpFetcher implements Fetcher {
                 'Cache-Control': 'no-cache, must-revalidate',
                 'X-Switchover-Client-ID': sdkKey,
                 'X-Switchover-User-Agent': 'switchover-js/1.0'
-            }
+            },
         }
 
         if (lastModified) {
@@ -30,8 +34,24 @@ export class HttpFetcher implements Fetcher {
             options.headers['If-Modified-Since'] = lastModified;
         }
 
-        return new Promise((resolve, reject) => {
+        if (this.proxy) {
+            this.logger.debug('Using proxy');
+            let proxyOptions = {
+                protocol: this.proxy.protocol,
+                host: this.proxy.host,
+                port: this.proxy.port
+            }
 
+            if (this.proxy.auth) {
+                proxyOptions['auth'] = this.proxy.auth.username + ':' + this.proxy.auth.password;
+            }
+
+            const proxyAgent = new HttpsProxyAgent(proxyOptions);
+           
+            options['agent'] = proxyAgent;
+        }
+
+        return new Promise((resolve, reject) => {
             const request = https.request(options, response => {
 
                 let data = '';
