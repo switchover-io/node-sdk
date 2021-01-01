@@ -1,7 +1,7 @@
 import { Logger, Fetcher, ApiResponse } from "switchover-js-core"
 import { API_ENDPOINT_HOST, API_ENDPOINT_PATH, API_ENDPOINT_PORT, API_ENDPOINT_FILENAME } from './sdk-config';
 import * as https from 'https';
-import { HttpsProxyAgent } from "https-proxy-agent";
+var HttpsProxyAgent = require('https-proxy-agent');
 import { ProxyOption } from "./ClientOptions";
 
 export class HttpFetcher implements Fetcher {
