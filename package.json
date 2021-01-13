@@ -1,6 +1,6 @@
 {
   "name": "switchover-node-sdk",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Switchover NodeJS SDK. Feature Toggle Management made easy.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -34,6 +34,6 @@
   },
   "dependencies": {
     "https-proxy-agent": "^5.0.0",
-    "switchover-js-core": "^1.2.2"
+    "switchover-js-core": "^1.2.4"
   }
 }

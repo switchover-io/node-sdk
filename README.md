@@ -57,7 +57,7 @@ const client = Switchover.createClient('<SKD_KEY>', {
     /* Set refresh interval, for example 60 seconds */
     refreshInterval: 60,
 
-    onUpdated: ( keys ) => {
+    onUpdate: ( keys ) => {
         /* updated will be called if some toggle keys are changed */
     }
 });
